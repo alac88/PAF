@@ -28,4 +28,5 @@ function FillSearch(event) {
     var target = getEventTarget(event);
     input.value = target.innerHTML;
     Search();
+    load_monument(input.value);
 }
