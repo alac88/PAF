@@ -1,3 +1,7 @@
+h1{
+    text-align: center;
+}
+
 #input {
     background-image: url('../img/searchicon.png'); /* Add a search icon to input */
     background-position: 5px 10px; /* Position the search icon */
