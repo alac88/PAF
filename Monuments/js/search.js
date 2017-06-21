@@ -28,5 +28,6 @@ function FillSearch() {
     ul.onclick = function (event) {
         var target = getEventTarget(event);
         input.value = target.innerHTML;
+        Search();
     };
 }
