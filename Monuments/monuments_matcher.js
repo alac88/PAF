@@ -13,7 +13,8 @@ var combineMatchers = [
     {matcherName: "location", abstractTemplate: "location", combineIds: ['lat','long'], order: 9000000 },
     {matcherName: "createMeta", abstractTemplate: "createMeta", combineIds: ['created','creator'], order: 10000000 },
     {matcherName: "address_line2", abstractTemplate: "address_line2", combineIds: ['street','street2'], order: 10000000 },
-    {matcherName: "address_line3", abstractTemplate: "address_line3", combineIds: ['city','country','postalCode'], order: 10000000 },
+    {matcherName: "address_line3", abstractTemplate: "address_line3", combineIds: ['city','country','postalCode'], order: 10000000 
+    {matcherName: "dates", abstractTemplate: "dates", combineIds: ['buildingStartDate','buildingEndDate'], order: 10000000 },
   ];
 
 var linkMatchers = [
@@ -57,23 +58,22 @@ var predicateMatchers = [
 
     //Nouveaux matchers = template et ordre a definir
 
-    {matcherName : "Building/floorArea", predicate : "http://dbpedia.org/ontology/department", abstractTemplate : "text", order : 90000},
-    {matcherName : "floorArea", predicate : "http://dbpedia.org/ontology/floorArea", abstractTemplate : "text", order : 9000},
+    {matcherName : "floorArea", predicate : "http://dbpedia.org/ontology/floorArea", abstractTemplate : "floorArea", order : 9000},
     {matcherName : "thumbnail", predicate : "http://dbpedia.org/ontology/thumbnail",templateVariable: "img_url", abstractTemplate: "img", order : 100000},
     {matcherName : "wikiPageExternalLink", predicate : "http://dbpedia.org/ontology/wikiPageExternalLink", abstractTemplate : "wikiPageExternalLink", order : 90000},
-    {matcherName : "nativeName", predicate : "http://dbpedia.org/property/nativeName", abstractTemplate : "text", order : },
-    {matcherName : "wordnet_type", predicate : "https://www.w3.org/2006/03/wn/wn20/instances/synset-monument-noun-2.rdf", abstractTemplate : "text", order : },
+    {matcherName : "nativeName", predicate : "http://dbpedia.org/property/nativeName", abstractTemplate : "nativeName", order : },
+    {matcherName : "wordnet_type", predicate : "https://www.w3.org/2006/03/wn/wn20/instances/synset-monument-noun-2.rdf", abstractTemplate : "website", order : },
     {matcherName : "subject", predicate : "http://purl.org/dc/terms/subject", abstractTemplate : "", order : },
     {matcherName : "type", predicate : "https://www.w3.org/1999/02/22-rdf-syntax-ns#type", abstractTemplate : "", order : },
-    {matcherName : "label", predicate : "https://www.w3.org/2000/01/rdf-schema#label", abstractTemplate : "text", order : },
+    {matcherName : "label", predicate : "https://www.w3.org/2000/01/rdf-schema#label", abstractTemplate : "", order : },
     {matcherName : "seeAlso", predicate : "https://www.w3.org/2000/01/rdf-schema#seeAlso", abstractTemplate : "", order : },
     {matcherName : "sameAs", predicate : "https://www.w3.org/2002/07/owl#sameAs", abstractTemplate : "", order : },
     {matcherName : "architecturalStyle", predicate : "http://dbpedia.org/ontology/architecturalStyle", abstractTemplate : "", order : },
-    {matcherName : "birthPlace", predicate : "http://dbpedia.org/ontology/birthPlace", abstractTemplate : "", order : },
+    {matcherName : "birthPlace", predicate : "http://dbpedia.org/ontology/birthPlace", abstractTemplate : "birthPlace", order : },
     {matcherName : "residence", predicate : "http://dbpedia.org/ontology/residence", abstractTemplate : "", order : },
     {matcherName : "museum", predicate : "http://dbpedia.org/ontology/museum", abstractTemplate : "", order : },
     {matcherName : "wikiPageRedirects", predicate : "http://dbpedia.org/ontology/wikiPageRedirects", abstractTemplate : "", order : },
-    {matcherName : "deathPlace", predicate : "http://dbpedia.org/ontology/deathPlace", abstractTemplate : "", order : },
+    {matcherName : "deathPlace", predicate : "http://dbpedia.org/ontology/deathPlace", abstractTemplate : "deathPlace", order : },
     {matcherName : "architect", predicate : "http://dbpedia.org/ontology/architect", abstractTemplate : "", order : },
     {matcherName : "buildingEndDate", predicate : "http://dbpedia.org/ontology/buildingEndDate", abstractTemplate : "", order : },
     {matcherName : "buildingStartDate", predicate : "http://dbpedia.org/ontology/buildingStartDate", abstractTemplate : "", order : },
