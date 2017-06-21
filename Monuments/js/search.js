@@ -15,17 +15,17 @@ function Search() {
             li[i].style.display = "none";
         }
     }
-};
+}
 
 var ul = document.getElementById('inputList');
 var input = document.getElementById('input');
 function getEventTarget(e) {
     e = e || window.event;
     return e.target || e.srcElement;
-};
+}
 
 function FillSearch(event) {
     var target = getEventTarget(event);
     input.value = target.innerHTML;
     Search();
-};
+}
