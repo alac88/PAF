@@ -61,7 +61,7 @@ var predicateMatchers = [
     {matcherName : "floorArea", predicate : "http://dbpedia.org/ontology/floorArea", abstractTemplate : "floorArea", order : 9000},
     {matcherName : "thumbnail", predicate : "http://dbpedia.org/ontology/thumbnail",templateVariable: "img_url", abstractTemplate: "img", order : 100000},
     {matcherName : "wikiPageExternalLink", predicate : "http://dbpedia.org/ontology/wikiPageExternalLink", abstractTemplate : "wikiPageExternalLink", order : 90000},
-    {matcherName : "nativeName", predicate : "http://dbpedia.org/property/nativeName", abstractTemplate : "nativeName", order : },
+    {matcherName : "nativeName", predicate : "http://dbpedia.org/property/nativeName", abstractTemplate : "nativeName", order : 90000},
     {matcherName : "wordnet_type", predicate : "https://www.w3.org/2006/03/wn/wn20/instances/synset-monument-noun-2.rdf", abstractTemplate : "website", order : 90000},
     {matcherName : "subject", predicate : "http://purl.org/dc/terms/subject", abstractTemplate : "subject", order : 90000},
     {matcherName : "type", predicate : "https://www.w3.org/1999/02/22-rdf-syntax-ns#type", abstractTemplate : "type", order : 90000},
