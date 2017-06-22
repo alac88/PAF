@@ -1,0 +1,15 @@
+source base de données données dans une format qui correspond à un graphe
+ressource paramètre optionnel qui indique quel est le point de départ dans le graphe pour accéder au matcher
+
+URI sur Versailles et que dans le fichiers il y ait plein de triplés et que plein aient l'uri de versailles en sujet ou objet. Alors on peut mettre versailles en ressource
+On met en ressource ce sur quoi on veut se focaliser
+Resource = uri de l'élément principal qui nous intéresse
+
+l'url correspond à pareil sauf ressource/paris
+
+source: fr.dbpedia.org/resource/paris
+Quand on fait la requête, on peut donner un certain nombre de précisions qu'on veut obtenir dans le header de la requête
+On peut y indiquer le type qu'on veut récupérer.
+On va a priori composer une requête dans laquelle on va préciser le format 
+
+Dans un premier temps, on travaille plus localement sur le matcher et le template. Comme ça on peut mieux analyser que si y'a des problèmes avec les requêtes.
