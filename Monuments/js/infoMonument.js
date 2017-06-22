@@ -20,7 +20,7 @@ function load_monument(name) {
 
         // prepare visualizer templates (html) for uduvudu
         var request = new XMLHttpRequest();
-        request.open('GET', 'templates.html', true);
+        request.open('GET', 'templatesMonument.html', true);
 
         request.onload = function(error) {
           if (request.status >= 200 && request.status < 400) {
@@ -66,7 +66,7 @@ function load_monument(name) {
     
 function adapt_name(name)
 {
-	var newName = name.replace(/ /g, "_");
+	var newName = name.replace(/ /gi, "_");
 	return newName;
 }
 
