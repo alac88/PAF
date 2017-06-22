@@ -67,7 +67,7 @@ function load_monument(name) {
 function adapt_name(name)
 {
 	var newName = name.replace(/ /gi, "_");
-	return newName;
+	return newName.replace(/-/gi,"_");
 }
 
 
