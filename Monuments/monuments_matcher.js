@@ -84,9 +84,18 @@ var predicateMatchers = [
     {matcherName : "differentFrom", predicate : "https://www.w3.org/2002/07/owl#differentFrom", abstractTemplate : "differentFrom", order : 5000},
     {matcherName : "link", predicate : "http://dbpedia.org/property/link", abstractTemplate : "link", order : 60000},
     {matcherName : "style", predicate : "http://dbpedia.org/property/style", abstractTemplate : "style", order : 82500},
-   // {matcherName : "", predicate : "", abstractTemplate : "", order : },
 
 
+/*
+    {matcherName : "affiliation", predicate : "http://dbpedia.org/ontology/affiliation", abstractTemplate : "", order : },
+    {matcherName : "heritageRegister", predicate : "http://dbpedia.org/ontology/heritageRegister", abstractTemplate : "", order : },
+    {matcherName : "religiousOrder", predicate : "http://dbpedia.org/ontology/religiousOrder", abstractTemplate : "", order : },
+    {matcherName : "classement", predicate : "http://fr.dbpedia.org/property/classement", abstractTemplate : "", order : },
+    {matcherName : "currentlyUsedFor", predicate : "http://dbpedia.org/ontology/currentlyUsedFor", abstractTemplate : "", order : },
+    {matcherName : "livingPlace", predicate : "http://dbpedia.org/ontology/livingPlace", abstractTemplate : "", order : },
+    {matcherName : "siège", predicate : "http://fr.dbpedia.org/property/siège", abstractTemplate : "", order : },
 
+
+*/
 
 ];
