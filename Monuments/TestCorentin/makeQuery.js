@@ -1,3 +1,5 @@
+var nameAndURIArray = new Array();
+
 // url of website where we can make SPARQL queries
 var dataBasesSparql = ["http://sparql.europeana.eu/",
 					   "http://dbpedia.org/sparql"];
@@ -51,7 +53,63 @@ function setResult()
 	var query = make_query(queryDatas[0],queryDatas[1],queryDatas[2],queryDatas[3],queryDatas[4]);
 	//var query = 'PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX edm: <http://www.europeana.eu/schemas/edm/> PREFIX ore: <http://www.openarchives.org/ore/terms/> SELECT distinct ?title ?creator ?mediaURL ?date WHERE {?CHO edm:type "IMAGE" ; ore:proxyIn ?proxy; dc:title ?title ; dc:creator ?creator ; dc:date ?date . ?proxy edm:isShownBy ?mediaURL . } LIMIT 100';
 	var encodedQuery = encode_query(1,query,"json");
-    div.innerHTML='<a href="' + encodedQuery + '">' + encodeURIComponent(query) + '</a>';
+    //div.innerHTML='<a href="' + encodedQuery + '">' + encodeURIComponent(query) + '</a>';
+	make_name_and_URI_array(encodedQuery,"json")
+}
+
+function get_resource_name(resourceURI)
+{
+	var name = "";
+	var len = resourceURI.length - 1;
+	while(resourceURI[len].localeCompare("/") != 0)
+	{
+		name = resourceURI[len].concat(name);
+		len--;
+	}
+	
+	return name;	
+}
+
+function json_to_array(jsonString)
+{
+	var parsed = JSON.parse(jsonString);
+	var resultsCard = parsed.results.bindings.length;
+	var resultsArray = parsed.results.bindings;
+	
+	for(var i=0;i<resultsCard;i++)
+	{
+		
+		nameAndURIArray.push(new Array(resultsArray[i].s.value,get_resource_name(resultsArray[i].s.value)));
+	}
+}
+
+function make_name_and_URI_array(queryURI,format)
+{
+	// getting content of queryURI if it's json
+	
+	if(format.localeCompare("json") == 0)
+	{
+		var jsonResult = null;
+		var request = new XMLHttpRequest();
+		request.open('GET', queryURI, true);
+
+		request.onload = function(error) {
+		  if (request.status >= 200 && request.status < 400) {
+			// Success!
+			//document.getElementById('containerMain').innerHTML = request.responseText;
+			jsonResult = request.responseText;
+			json_to_array(jsonResult);
+		  } else {
+			  console.error('Could not load page.');
+		  }
+		};
+
+		request.onerror = function(error) {
+			  console.error('Could not load page.');
+		};
+
+		request.send(); 
+	}
 }
 
 window.onload = function() {
