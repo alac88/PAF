@@ -1,4 +1,12 @@
-var nameAndURIArray = new Array();
+// buttons
+
+var buttons = new Array(document.getElementById("resourceMonuments"),
+					    document.getElementById("resourceHistoricalPlaces"),
+						document.getElementById("resourceWorldHeritageSites"),
+						document.getElementById("resourceArchitecturalStructures"),
+						);
+						
+var nameAndURIArray = null;
 
 // url of website where we can make SPARQL queries
 var dataBasesSparql = ["http://sparql.europeana.eu/",
@@ -13,6 +21,14 @@ var outputFormats = {html : "text%2Fhtml",
 					 turtle : "text%2Fturtle",
 					 NTriples : "text%2Fplain",
 					 js : "application%2Fjavascript"};
+					 
+$(document).ready(function()
+{
+	buttons[0].onclick = function(){setResult("resourceMonuments");};
+	buttons[1].onclick = function(){setResult("resourceHistoricalPlaces");}
+	buttons[2].onclick = function(){setResult("resourceWorldHeritageSites");}
+	buttons[3].onclick = function(){setResult("resourceArchitecturalStructures");}
+});
 
 // return a query
 function make_query(resultAsked,s,p,o,limit)
@@ -46,15 +62,41 @@ function encode_query(dataBaseID,query,outputID)
 	return str.replace(/%20/gi,"+");
 }
 
-function setResult()
+function setResult(category)
 {
-	var div = document.getElementById("containerMain");
-	var queryDatas = dbpediaQueries[labels["resourceWorldHeritageSites"]];
+	var queryDatas = dbpediaQueries[labels[category]];
 	var query = make_query(queryDatas[0],queryDatas[1],queryDatas[2],queryDatas[3],queryDatas[4]);
-	//var query = 'PREFIX dc: <http://purl.org/dc/elements/1.1/> PREFIX edm: <http://www.europeana.eu/schemas/edm/> PREFIX ore: <http://www.openarchives.org/ore/terms/> SELECT distinct ?title ?creator ?mediaURL ?date WHERE {?CHO edm:type "IMAGE" ; ore:proxyIn ?proxy; dc:title ?title ; dc:creator ?creator ; dc:date ?date . ?proxy edm:isShownBy ?mediaURL . } LIMIT 100';
 	var encodedQuery = encode_query(1,query,"json");
-    //div.innerHTML='<a href="' + encodedQuery + '">' + encodeURIComponent(query) + '</a>';
-	make_name_and_URI_array(encodedQuery,"json")
+	make_name_and_URI_array(encodedQuery,"json");
+}
+
+function display_array(arrayToDisplay)
+{
+	var table = document.getElementById("tableContainer");
+	table.innerHTML = "";
+	var nbTr = arrayToDisplay.length;
+	for(var i=0;i<nbTr;i++)
+	{
+		var newTr = document.createElement('tr');
+		
+		var newTd0 = document.createElement('td');
+		var newTd1 = document.createElement('td');
+		var newTd2 = document.createElement('td');
+		
+		var newTextNode0 = document.createTextNode(i);
+		var newTextNode1 = document.createTextNode(arrayToDisplay[i][1]);
+		var newTextNode2 = document.createTextNode(arrayToDisplay[i][0]);
+		
+		newTd0.appendChild(newTextNode0);
+		newTd1.appendChild(newTextNode1);
+		newTd2.appendChild(newTextNode2);
+		
+		newTr.appendChild(newTd0);
+		newTr.appendChild(newTd1);
+		newTr.appendChild(newTd2);
+		
+		table.appendChild(newTr);
+	}	
 }
 
 function get_resource_name(resourceURI)
@@ -75,10 +117,10 @@ function json_to_array(jsonString)
 	var parsed = JSON.parse(jsonString);
 	var resultsCard = parsed.results.bindings.length;
 	var resultsArray = parsed.results.bindings;
+	nameAndURIArray = new Array();
 	
 	for(var i=0;i<resultsCard;i++)
 	{
-		
 		nameAndURIArray.push(new Array(resultsArray[i].s.value,get_resource_name(resultsArray[i].s.value)));
 	}
 }
@@ -99,6 +141,7 @@ function make_name_and_URI_array(queryURI,format)
 			//document.getElementById('containerMain').innerHTML = request.responseText;
 			jsonResult = request.responseText;
 			json_to_array(jsonResult);
+			display_array(nameAndURIArray);
 		  } else {
 			  console.error('Could not load page.');
 		  }
@@ -111,8 +154,3 @@ function make_name_and_URI_array(queryURI,format)
 		request.send(); 
 	}
 }
-
-window.onload = function() {
-  setResult();
-};
-
