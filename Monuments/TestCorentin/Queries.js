@@ -8,7 +8,6 @@ var dbpediaQueries = new Array(new Array("","?s","rdfs:subClassOf","<http://dbpe
 							   new Array("distinct ?s","?s","<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>","<http://dbpedia.org/ontology/HistoricPlace>",10000),
 							   new Array("distinct ?s","?s","<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>","<http://dbpedia.org/ontology/WorldHeritageSite>",1000),
 							   new Array("distinct ?s","?s","<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>","<http://dbpedia.org/ontology/ArchitecturalStructure>",10000)
-					);
-					  
+					);			  
 				
 /**************************************************************/			
