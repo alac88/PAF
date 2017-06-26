@@ -2,6 +2,16 @@ h1{
     text-align: center;
 }
 
+h2{
+    color:red;
+}
+
+#main{
+    margin-top: 50px;
+    margin-bot: 50px;
+    border: 1px solid #ddd;
+}
+
 #input {
     background-image: url('../img/searchicon.png'); /* Add a search icon to input */
     background-position: 5px 10px; /* Position the search icon */
