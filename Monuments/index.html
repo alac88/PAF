@@ -25,13 +25,13 @@
 
 
 <div class="radio-group">
-    <input type="radio" id="option-one" name="selector" value="1" checked><label for="option-one">Level 1</label>
-    <input type="radio" id="option-two" name="selector" value="2"><label for="option-two">Level 2</label>
-    <input type="radio" id="option-three" name="selector" value="3"><label for="option-three">Level 3</label>
+    <input type="radio" id="option-one" name="selector" value="1" onclick="loadJS('matcher_level1.js')" ><label for="option-one">Level 1</label>
+    <input type="radio" id="option-two" name="selector" value="2" onclick="loadJS('matcher_level2.js')"><label for="option-two">Level 2</label>
+    <input type="radio" id="option-three" name="selector" value="3" onclick="loadJS('matcher_level3.js')"><label for="option-three">Level 3</label>
 </div>
 
 <div class="checkbox">
-    <input type="checkbox" id="type-one" name="type" value="1" checked><label for="type-one">Monuments</label>
+    <input type="checkbox" id="type-one" name="type" value="1"><label for="type-one">Monuments</label>
     <input type="checkbox" id="type-two" name="type" value="2"><label for="type-two">Lieux historiques</label>
     <input type="checkbox" id="type-three" name="type" value="3"><label for="type-three">Patrimoine mondial</label>
     <input type="checkbox" id="type-four" name="type" value="4"><label for="type-four">Structures architecturales</label>
@@ -144,23 +144,42 @@
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="Queries.js"></script>
+<script src="makeQuery.js"></script>
 <script type="text/javascript">
-    js_script = document.createElement('script');
-    js_script.type = "text/javascript";
-    if($('input[name="selector"]:checked').val()==1){
-        js_script.src = "matcher_level1.js";
-    }
-    if($('input[name="selector"]:checked').val()==2){
-        js_script.src = "matcher_level2.js";
-    }
-    if($('input[name="selector"]:checked').val()==3){
-        js_script.src = "matcher_level3.js";
-    }
-    document.getElementsByTagName('head')[0].appendChild(js_script);
+    var predicateMatchers=null;
 </script>
-<script src="dist/uduvudu.js" type="text/javascript"></script>
+<script type="application/javascript">
+    function loadJS(file) {
+        predicateMatchers=null;
+            $('script').each(function() {
+                if(this.src!=null && this.src!=""){
+                var suffixe=get_resource_name(this.src);
+
+                if (suffixe.localeCompare('matcher_level1.js')==0 || suffixe.localeCompare('matcher_level2.js')==0 || suffixe.localeCompare('matcher_level3.js')==0) {
+
+                    this.parentNode.removeChild( this );
+                    alert('childremove');
+                }}
+            });
+        // DOM: Create the script element
+        var jsElm = document.createElement("script");
+        // set the type attribute
+        jsElm.type = "application/javascript";
+        // make the script element load file
+        jsElm.src = file;
+        document.body.insertBefore(jsElm,document.getElementById("distuduvudu"));
+        // finally insert the element to the body element in order to load the script
+        alert('childappend');
+    }
+</script>
+<script type="text/javascript">
+    $("#option-three").trigger("click");
+</script>
+<script id="distuduvudu" src="dist/uduvudu.js" type="text/javascript"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/search.js"></script>
 <script src="js/infoMonument.js"></script>
+
 </body>
 </html>
