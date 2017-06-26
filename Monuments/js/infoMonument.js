@@ -22,6 +22,7 @@ function load_monument(name) {
         var request = new XMLHttpRequest();
         request.open('GET', 'templatesMonument.html', true);
 
+
         request.onload = function(error) {
           if (request.status >= 200 && request.status < 400) {
             // Success!

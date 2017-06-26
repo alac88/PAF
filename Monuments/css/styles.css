@@ -58,3 +58,37 @@ strong{
 #inputList li a:hover:not(.header) {
     background-color: #eee; /* Add a hover effect to all links, except for headers */
 }
+/* Radio Group */
+
+
+input[type=radio] {
+    position: absolute;
+    visibility: hidden;
+    display: none;
+}
+
+label {
+    rgba(51, 47, 53, 0.6);
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 5px 20px;
+    margin-bottom: 0px;
+}
+
+input[type=radio]:checked + label{
+    color: whitesmoke;
+    background: rgba(51, 47, 53, 0.8);
+}
+
+label + input[type=radio] + label {
+    border-left: solid 3px rgba(51, 47, 53, 0.8);
+    margin-left:-4px;
+}
+.radio-group {
+    border: solid 3px rgba(51, 47, 53, 0.8);
+    display: inline-block;
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
