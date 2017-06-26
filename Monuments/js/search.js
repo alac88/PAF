@@ -30,3 +30,20 @@ function FillSearch(event) {
     Search();
     load_monument(input.value);
 }
+
+/*function ButtonSearch(){
+    if (document.getElementById("resourceMonuments").checked){
+        setResult("resourceMonuments");
+    }
+    if (document.getElementById("resourceHistoricalPlaces").checked){
+        setResult("resourceHistoricalPlaces");
+    }
+    if (document.getElementById("resourceWorldHeritageSites").checked){
+        setResult("resourceWorldHeritageSites");
+    }
+    if (document.getElementById("resourceArchitecturalStructures").checked){
+        setResult("resourceArchitecturalStructures");
+    }
+
+}
+*/
