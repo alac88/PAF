@@ -207,12 +207,24 @@
 
 
 </div>
-
+<script type="text/javascript">
+    js_script = document.createElement('script');
+    js_script.type = "text/javascript";
+    if($('input[name="selector"]:checked').val()==1){
+        js_script.src = "matcher_level1.js";
+    }
+    if($('input[name="selector"]:checked').val()==2){
+        js_script.src = "matcher_level2.js";
+    }
+    if($('input[name="selector"]:checked').val()==3){
+        js_script.src = "matcher_level3.js";
+    }
+    document.getElementsByTagName('head')[0].appendChild(js_script);
+</script>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="matcher_level3.js" type="text/javascript"></script>
 <script src="dist/uduvudu.js" type="text/javascript"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/search.js"></script>
