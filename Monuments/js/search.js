@@ -31,7 +31,7 @@ function FillSearch(event) {
     load_monument(input.value);
 }
 
-/*function ButtonSearch(){
+function ButtonSearch(){
     if (document.getElementById("resourceMonuments").checked){
         setResult("resourceMonuments");
     }
@@ -46,4 +46,3 @@ function FillSearch(event) {
     }
 
 }
-*/
