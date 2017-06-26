@@ -21,115 +21,98 @@
 
 <body>
 
-
 <section id="left_column">
     <img src="img/tpt.png" height="150px" width="150px"><br><br>
     <h1>PAF 2017</h1>
-    <h3>Projet étudiant de 1ère année</h3>
+    <H3>Projet étudiant de 1ère année</H3>
 
-    <h2><a href="https://paf.telecom-paristech.fr/projets/exploitation-donnees-lopen-data-et-web-semantique">Exploitation de données de l’Open Data et du Web Sémantique</a></h2>
-
+    <h2><a href="https://paf.telecom-paristech.fr/projets/exploitation-donnees-lopen-data-et-web-semantique">Exploitation de données de l'Open Data et du Web Sémantique</a></h2>
 
     <a class="button" href="poster.pdf">Télécharger notre poster</a>
 
 </section>
 
-
-  
-
 <section id="right_column">
-    `
-  <header id="search_header">
 
-
-        <div class="center">
-                <div class="radio-group">
-                <input type="radio" id="option-one" name="selector" value="1" onclick="loadJS('matcher_level1.js')" ><label for="option-one">Level 1</label>
-                <input type="radio" id="option-two" name="selector" value="2" onclick="loadJS('matcher_level2.js')"><label for="option-two">Level 2</label>
-                <input type="radio" id="option-three" name="selector" value="3" onclick="loadJS('matcher_level3.js')"><label for="option-three">Level 3</label>
-            </div>
-
-           <div class="checkbox">
-                <input type="checkbox" id="resourceMonuments" name="type" value="1"><label for="resourceMonuments">Monuments</label>
-                <input type="checkbox" id="resourceHistoricalPlaces" name="type" value="2"><label for="resourceHistoricalPlaces">Lieux historiques</label>
-                <input type="checkbox" id="resourceWorldHeritageSites" name="type" value="3"><label for="resourceWorldHeritageSites">Patrimoine mondial</label>
-                <input type="checkbox" id="resourceArchitecturalStructures" name="type" value="4"><label for="resourceArchitecturalStructures">Structures architecturales</label>
-            </div>
-
+<header id="search_header">
+    <div class="center">
+        <div class="radio-group">
+          <input type="radio" id="option-one" name="selector" value="1" onclick="loadJS('matcher_level1.js')" ><label for="option-one">Level 1</label>
+          <input type="radio" id="option-two" name="selector" value="2" onclick="loadJS('matcher_level2.js')"><label for="option-two">Level 2</label>
+           <input type="radio" id="option-three" name="selector" value="3" onclick="loadJS('matcher_level3.js')"><label for="option-three">Level 3</label>
         </div>
-        
+
+        <div class="checkbox">
+         <input type="checkbox" id="resourceMonuments" name="type" value="1"><label for="resourceMonuments">Monuments</label>
+         <input type="checkbox" id="resourceHistoricalPlaces" name="type" value="2"><label for="resourceHistoricalPlaces">Lieux historiques</label>
+         <input type="checkbox" id="resourceWorldHeritageSites" name="type" value="3"><label for="resourceWorldHeritageSites">Patrimoine mondial</label>
+         <input type="checkbox" id="resourceArchitecturalStructures" name="type" value="4"><label for="resourceArchitecturalStructures">Structures architecturales</label>
+        </div>
+    </div>
+
         <input type="text" id="input" onkeyup="Search()" placeholder="Search for names..">
+        <button id="Search" onclick="ButtonSearch()">Chercher</button>
+            <ul id="inputList" onclick="FillSearch()" >
 
-        <ul id="inputList" onclick="FillSearch()" >
-            
-        </ul>
-
-
+            </ul>
 
     </header>
 
 
-    <div id="info">
-         <div class="container">
-            <!-- location where to render to -->
-         <div class="row">
-            <div id="main">
-            </div>
+
+
+<div id="info">
+
+
+    <div class="container">
+        <!-- location where to render to -->
+        <div class="row">
+           <div id="main">
+           </div>
          </div>
     </div>
 
     <!-- where the templates are injected -->
     <div id="templates"></div>
 
+</div>
 
+<footer>
+
+    <div class="column">  
+         <p>
+            46 rue Barrault<br>
+            75013 Paris, FRANCE<br>            
+        </p>
+       
+    </div>
+
+
+
+    <div class="column">
+          <h4>Bases de données</h4>
+             <ul>
+                <li><a href="http://fr.dbpedia.org/">DBpedia</a></li>
+             </ul>
+                          
+    </div>
+
+
+     <div class="column">
+         <h4>Membres</h4>
+
+            <ul>
+                <li>fezffz</li>
+                <li>fezffz</li>
+                <li>fezffz</li>
+
+            </ul>
+                        
     </div>
    
-
-
-
-    <footer>
-
-        <div class="column">  
-             <p>
-                Télécom ParisTech<br>
-                46 rue Barrault<br>
-                75013 Paris, FRANCE<br>            
-            </p>
-           
-        </div>
-
-
-
-        <div class="column">
-              <h4>Bases de données</h4>
-                 <ul>
-                    <li><a href="http://fr.dbpedia.org/">DBpedia</a></li>
-                 </ul>
-                              
-        </div>
-
-
-         <div class="column">
-             <h4>Membres</h4>
-
-                <ul>
-                    <li>ROBINEAU Corentin</li>
-                    <li>BLANCHARD Robin</li>
-                    <li>LAC Alexandre</li>
-
-                </ul>
-                            
-        </div>
-       
-
-    </footer>
-
+</footer>
 
 </section>
-
-
-
-
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

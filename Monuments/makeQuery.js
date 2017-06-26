@@ -22,13 +22,13 @@ var outputFormats = {html : "text%2Fhtml",
     NTriples : "text%2Fplain",
     js : "application%2Fjavascript"};
 
-$(document).ready(function()
+/*$(document).ready(function()
 {
     buttons[0].onclick = function(){setResult("resourceMonuments");};
     buttons[1].onclick = function(){setResult("resourceHistoricalPlaces");}
     buttons[2].onclick = function(){setResult("resourceWorldHeritageSites");}
     buttons[3].onclick = function(){setResult("resourceArchitecturalStructures");}
-});
+});*/
 
 // return a query
 function make_query(resultAsked,s,p,o,limit)
@@ -163,7 +163,7 @@ function display_final(arrayToDisplay){
     {
     	var a=document.createElement('a');
         var li= document.createElement('li');
-        a.textContent=arrayToDisplay[i][1];
+        a.textContent=arrayToDisplay[i][1].replace(/_/gi, " ");
         a.setAttribute('href','#');
         li.appendChild(a);
 
