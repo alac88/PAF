@@ -93,3 +93,29 @@ label + input[type=radio] + label {
     border-radius: 10px;
     overflow: hidden;
 }
+
+/* Checkbox */
+
+input[type=checkbox] {
+    position: absolute;
+    visibility: hidden;
+    display: none;
+}
+
+input[type=checkbox]:checked + label{
+    color: whitesmoke;
+    background: rgba(51, 47, 53, 0.8);
+}
+
+label + input[type=checkbox] + label {
+    border-left: solid 3px rgba(51, 47, 53, 0.8);
+    margin-left:-4px;
+}
+.checkbox {
+    border: solid 3px rgba(51, 47, 53, 0.8);
+    display: inline-block;
+    margin-top: 100px;
+    margin-left: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
