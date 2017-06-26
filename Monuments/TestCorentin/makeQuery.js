@@ -4,9 +4,15 @@ var buttons = new Array(document.getElementById("resourceMonuments"),
 					    document.getElementById("resourceHistoricalPlaces"),
 						document.getElementById("resourceWorldHeritageSites"),
 						document.getElementById("resourceArchitecturalStructures"),
+						document.getElementById("combinedMonumentsAndWorldHeritage"),
 						);
 						
 var nameAndURIArray = null;
+var currentFilter = "";
+var currentOffSet = 0;
+var currentCategory = "";
+var maxOffset = 0;
+
 
 // url of website where we can make SPARQL queries
 var dataBasesSparql = ["http://sparql.europeana.eu/",
@@ -24,16 +30,17 @@ var outputFormats = {html : "text%2Fhtml",
 					 
 $(document).ready(function()
 {
-	buttons[0].onclick = function(){setResult("resourceMonuments");};
-	buttons[1].onclick = function(){setResult("resourceHistoricalPlaces");}
-	buttons[2].onclick = function(){setResult("resourceWorldHeritageSites");}
-	buttons[3].onclick = function(){setResult("resourceArchitecturalStructures");}
+	buttons[0].onclick = function(){setResult("resourceMonuments","",0);};
+	buttons[1].onclick = function(){setResult("resourceHistoricalPlaces","",0);}
+	buttons[2].onclick = function(){setResult("resourceWorldHeritageSites","",0);}
+	buttons[3].onclick = function(){setResult("resourceArchitecturalStructures","",0);}
+	buttons[4].onclick = function(){setResult("combinedMonumentsAndWorldHeritage",make_combined_filter("<http://dbpedia.org/ontology/Monument>","<http://dbpedia.org/ontology/WorldHeritageSite>",null,null),0);}
 });
 
 // return a query
-function make_query(resultAsked,s,p,o,limit)
+function make_query(resultAsked,s,p,o,filter,limit,offset)
 {
-	return "select " + resultAsked + " where { " + s + " " + p + " " + o + " } limit " + limit;
+	return "select " + resultAsked + " where { " + s + " " + p + " " + o + " " + filter + " } limit " + limit + " offset " + offset;
 }
 
 // makes an url asking for the results of a query on a database i a specified format
@@ -62,10 +69,21 @@ function encode_query(dataBaseID,query,outputID)
 	return str.replace(/%20/gi,"+");
 }
 
-function setResult(category)
+function setResult(category,filter,offset)
 {
+	if(offset == 0)
+	{
+		maxOffset = 0;
+		nameAndURIArray = new Array();
+		currentOffSet = 0;
+	}
+	
+	currentFilter = filter;
+	currentCategory = category;
+	maxOffset++;
 	var queryDatas = dbpediaQueries[labels[category]];
-	var query = make_query(queryDatas[0],queryDatas[1],queryDatas[2],queryDatas[3],queryDatas[4]);
+	var query = make_query(queryDatas[0],queryDatas[1],queryDatas[2],queryDatas[3],filter,queryDatas[4],offset);
+
 	var encodedQuery = encode_query(1,query,"json");
 	make_name_and_URI_array(encodedQuery,"json");
 }
@@ -117,7 +135,6 @@ function json_to_array(jsonString)
 	var parsed = JSON.parse(jsonString);
 	var resultsCard = parsed.results.bindings.length;
 	var resultsArray = parsed.results.bindings;
-	nameAndURIArray = new Array();
 	
 	for(var i=0;i<resultsCard;i++)
 	{
@@ -141,7 +158,12 @@ function make_name_and_URI_array(queryURI,format)
 			//document.getElementById('containerMain').innerHTML = request.responseText;
 			jsonResult = request.responseText;
 			json_to_array(jsonResult);
-			display_array(nameAndURIArray);
+			
+			if(nameAndURIArray.length % 10000 == 0 && maxOffset < 5)
+				setResult(currentCategory,currentFilter,currentOffSet + 10000);
+			else
+				display_array(nameAndURIArray);		
+			
 		  } else {
 			  console.error('Could not load page.');
 		  }
