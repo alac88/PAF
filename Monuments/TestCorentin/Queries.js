@@ -1,5 +1,6 @@
 /******************** RDF DATABASE DBPEDIA ********************/
 
+var limit = 10000;
 var labels = {places : 0,
 			  resourceMonuments : 1,
 			  resourceHistoricalPlaces : 2,
@@ -8,12 +9,12 @@ var labels = {places : 0,
 			  combinedQuery : 5};
 			  
 // interesting queries for RDF dbpedia
-var dbpediaQueries = new Array(new Array("","?s","rdfs:subClassOf","<http://dbpedia.org/ontology/Place>",10000),
-							   new Array("distinct ?s","?s","<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>","<http://dbpedia.org/ontology/Monument>",10000),
-							   new Array("distinct ?s","?s","<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>","<http://dbpedia.org/ontology/HistoricPlace>",10000),
-							   new Array("distinct ?s","?s","<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>","<http://dbpedia.org/ontology/WorldHeritageSite>",10000),
-							   new Array("distinct ?s","?s","<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>","<http://dbpedia.org/ontology/ArchitecturalStructure>",10000),
-							   new Array("?s","?s","<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>","?o.",10000)
+var dbpediaQueries = new Array(new Array("","?s","rdfs:subClassOf","<http://dbpedia.org/ontology/Place>",limit),
+							   new Array("distinct ?s","?s","<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>","<http://dbpedia.org/ontology/Monument>",limit),
+							   new Array("distinct ?s","?s","<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>","<http://dbpedia.org/ontology/HistoricPlace>",limit),
+							   new Array("distinct ?s","?s","<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>","<http://dbpedia.org/ontology/WorldHeritageSite>",limit),
+							   new Array("distinct ?s","?s","<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>","<http://dbpedia.org/ontology/ArchitecturalStructure>",limit),
+							   new Array("?s","?s","<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>","?o.",limit)
 					);			  
 
 					

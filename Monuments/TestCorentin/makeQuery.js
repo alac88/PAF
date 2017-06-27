@@ -33,7 +33,7 @@ $(document).ready(function()
 	buttons[0].onclick = function(){setResult("resourceMonuments","",0);};
 	buttons[1].onclick = function(){setResult("resourceHistoricalPlaces","",0);}
 	buttons[2].onclick = function(){setResult("resourceWorldHeritageSites","",0);}
-	buttons[3].onclick = function(){setResult("resourceArchitecturalStructures","",0);}
+	buttons[3].onclick = function(){setResult("resourceArchitecturalStructures",make_regexp_filter(make_regexp("str(?s)","http://dbpedia.org/resource/.*sun.*","i")),0);}
 	buttons[4].onclick = function(){setResult("combinedQuery",make_combined_filter("<http://dbpedia.org/ontology/HistoricPlace>","<http://dbpedia.org/ontology/WorldHeritageSite>",null,null,""),0);}
 });
 
