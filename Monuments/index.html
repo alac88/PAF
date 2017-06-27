@@ -50,8 +50,7 @@
         </div>
     </div>
 
-        <input type="text" id="input" onkeyup="Search()" placeholder="Search for names..">
-        <button id="Search" onclick="ButtonSearch()">Chercher</button>
+        <input type="text" id="input" onkeyup="Search()" onkeydown="ButtonSearch()" placeholder="Search for names..">
             <ul id="inputList" onclick="FillSearch()" >
 
             </ul>
@@ -134,16 +133,22 @@
                 var suffixe=get_resource_name(this.src);
 
                 if (suffixe.localeCompare('matcher_level1.js')==0 || suffixe.localeCompare('matcher_level2.js')==0 || suffixe.localeCompare('matcher_level3.js')==0) {
-
+                    this.parentNode.removeChild(document.getElementById("distuduvudu"));
                     this.parentNode.removeChild( this );
                 }}
             });
         // DOM: Create the script element
         var jsElm = document.createElement("script");
+        var distuduvudu = document.createElement("script");
         // set the type attribute
         jsElm.type = "application/javascript";
+        distuduvudu.type = "text/javascript";
         // make the script element load file
         jsElm.src = file;
+        distuduvudu.src="dist/uduvudu.js";
+        distuduvudu.id="distuduvudu";
+
+        document.body.insertBefore(distuduvudu,document.getElementById("bootstrap.min"));
         document.body.insertBefore(jsElm,document.getElementById("distuduvudu"));
         // finally insert the element to the body element in order to load the script
     }
@@ -151,8 +156,7 @@
 <script type="text/javascript">
     $("#option-three").trigger("click");
 </script>
-<script id="distuduvudu" src="dist/uduvudu.js" type="text/javascript"></script>
-<script src="js/bootstrap.min.js"></script>
+<script id="bootstrap.min" src="js/bootstrap.min.js"></script>
 <script src="js/search.js"></script>
 <script src="js/infoMonument.js"></script>
 

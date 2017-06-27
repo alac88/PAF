@@ -4,7 +4,7 @@ var buttons = new Array(document.getElementById("resourceMonuments"),
 					    document.getElementById("resourceHistoricalPlaces"),
 						document.getElementById("resourceWorldHeritageSites"),
 						document.getElementById("resourceArchitecturalStructures"),
-						document.getElementById("combinedMonumentsAndWorldHeritage"),
+						document.getElementById("combinedQuery"),
 						);
 						
 var nameAndURIArray = null;
@@ -34,7 +34,7 @@ $(document).ready(function()
 	buttons[1].onclick = function(){setResult("resourceHistoricalPlaces","",0);}
 	buttons[2].onclick = function(){setResult("resourceWorldHeritageSites","",0);}
 	buttons[3].onclick = function(){setResult("resourceArchitecturalStructures","",0);}
-	buttons[4].onclick = function(){setResult("combinedMonumentsAndWorldHeritage",make_combined_filter("<http://dbpedia.org/ontology/Monument>","<http://dbpedia.org/ontology/WorldHeritageSite>",null,null),0);}
+	buttons[4].onclick = function(){setResult("combinedQuery",make_combined_filter("<http://dbpedia.org/ontology/HistoricPlace>","<http://dbpedia.org/ontology/WorldHeritageSite>",null,null,""),0);}
 });
 
 // return a query
@@ -80,10 +80,11 @@ function setResult(category,filter,offset)
 	
 	currentFilter = filter;
 	currentCategory = category;
+	currentOffSet = offset;
 	maxOffset++;
 	var queryDatas = dbpediaQueries[labels[category]];
 	var query = make_query(queryDatas[0],queryDatas[1],queryDatas[2],queryDatas[3],filter,queryDatas[4],offset);
-
+	alert(query);
 	var encodedQuery = encode_query(1,query,"json");
 	make_name_and_URI_array(encodedQuery,"json");
 }
@@ -159,7 +160,7 @@ function make_name_and_URI_array(queryURI,format)
 			jsonResult = request.responseText;
 			json_to_array(jsonResult);
 			
-			if(nameAndURIArray.length % 10000 == 0 && maxOffset < 5)
+			if(nameAndURIArray.length % 10000 == 0 && maxOffset < 2)
 				setResult(currentCategory,currentFilter,currentOffSet + 10000);
 			else
 				display_array(nameAndURIArray);		
