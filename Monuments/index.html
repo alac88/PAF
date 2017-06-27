@@ -32,6 +32,8 @@
 
 </section>
 
+
+
 <section id="right_column">
 
 <header id="search_header">
@@ -50,14 +52,21 @@
         </div>
     </div>
 
-        <input type="text" id="input" onkeyup="Search()" onkeydown="ButtonSearch()" placeholder="Search for names..">
+        <input type="text" id="input" onkeydown="Search()" onkeyup="ButtonSearch()" placeholder="Search for names..">
             <ul id="inputList" onclick="FillSearch()" >
 
             </ul>
 
     </header>
 
-
+    <script type="text/javascript">
+        document.getElementById("input").onkeypress=function(e){
+            if (e.keyCode==8) {
+                launchQuery = true;
+                ButtonSearch();
+            }
+        }
+    </script>
 
 
 <div id="info">
