@@ -456,18 +456,6 @@
 </script>
 
 
-<script id="location_js" type="text/uduvudu-template">
-        var script = document.createElement("script");
-        script.type = "text/javascript";
-        script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyAFRTcPPyYit9ERj9COlgpgYW-Ve-lUeUs&sensor=false&callback=initializeMap";
-        document.body.appendChild(script);
-        
-        initializeMap = function () {
-            var myLatlng = new google.maps.LatLng(<%-location.lat.u%>, <%-location.long.u%>);
-            var mapOptions = { center: myLatlng, disableDefaultUI: true, zoomControl: true, zoom: 12, mapTypeId: google.maps.MapTypeId.ROADMAP };
-            var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-        };
-</script>
 
 
 
@@ -536,4 +524,51 @@
       <strong>Nom : </strong><a href="<%-name.u%>"><%-name.u%></a> <br>
     </p>
 </script>
+
+
+
+
+
+<script id="wikiPageRevisionID" type="text/uduvudu-template">
+    <p>
+      <strong>wikiPageRevisionID : </strong><a href="<%-wikiPageRevisionID.u%>"><%-wikiPageRevisionID.u%></a> <br>
+    </p>
+</script>
+
+<script id="wikiPageID" type="text/uduvudu-template">
+    <p>
+      <strong>wikiPageID : </strong><a href="<%-wikiPageID.u%>"><%-wikiPageID.u%></a> <br>
+    </p>
+</script>
+
+<script id="seeAlso" type="text/uduvudu-template">
+    <p>
+      <strong>Voir également : </strong><a href="<%-seeAlso.u%>"><%-seeAlso.u%></a> <br>
+    </p>
+</script>
+
+<script id="sameAs" type="text/uduvudu-template">
+    <p>
+      <strong>Dans la même catégorie : </strong><a href="<%-sameAs.u%>"><%-sameAs.u%></a> <br>
+    </p>
+</script>
+
+<script id="differentFrom" type="text/uduvudu-template">
+    <p>
+      <strong>Ne pas confondre avec : </strong><a href="<%-differentFrom.u%>"><%-differentFrom.u%></a> <br>
+    </p>
+</script>
+
+<script id="link" type="text/uduvudu-template">
+    <p>
+      <strong>Link : </strong><a href="<%-link.u%>"><%-link.u%></a> <br>
+    </p>
+</script>
+
+<script id="style" type="text/uduvudu-template">
+    <p>
+      <strong>Style : </strong><a href="<%-style.u%>"><%-style.u%></a> <br>
+    </p>
+</script>
+
 

@@ -3,7 +3,7 @@ predicateMatchers=[
     {matcherName: "depiction", predicate: "http://xmlns.com/foaf/0.1/depiction", templateVariable: "img_url", abstractTemplate: "img", order: 1000000 },
     {matcherName: "abstract", predicate: "http://dbpedia.org/ontology/abstract", templateVariable: "abstract", abstractTemplate: "abstract", order: 900000 },
 
-
+    {matcherName : "region", predicate : "http://dbpedia.org/property/region", abstractTemplate : "region", order : 80000},
     {matcherName: "area", predicate: "http://dbpedia.org/property/area", abstractTemplate: "area", order: 79000 },
     {matcherName: "long", predicate: "http://www.w3.org/2003/01/geo/wgs84_pos#long", abstractTemplate: "long", order: 79000 },
     {matcherName: "lat", predicate: "http://www.w3.org/2003/01/geo/wgs84_pos#lat", abstractTemplate: "lat", order: 79000 },
