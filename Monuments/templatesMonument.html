@@ -392,19 +392,19 @@
 <!-- Templates Level 1 -->
 
 <script id="title" type="text/uduvudu-template">
-    <h1><%-title.u%></h1>
+    <h1 style="color: #8b3a3a;"><%-title.u%></h1>
 </script>
 
 <script id="img" type="text/uduvudu-template">
-  <div style="width: 140px; height: 235px; float: left">
+  <div class="marg_r" style="width: 140px; height: 235px; margin: auto; margin-top: 50px; margin-bottom: 50px;">
     <img style="min-width: 140px; min-height: 235px;" src="<%-img_url.u%>" class="img-responsive" />
   </div>
 </script>
 
 <script id="abstract" type="text/uduvudu-template">
-  <div style="width: 560px; padding: 4px; float: left;">
+  <div style="margin-left: 50px; margin-right: 50px;">
     <h2>Description</h2>
-    <p><%-abstract.u%></p>
+    <p><%-abstract.u%></p><br>
   </div>
 </script>
 
@@ -450,10 +450,30 @@
 
 
 <script id="location" type="text/uduvudu-template">
-    <div id="map-canvas" style="height: 250px; width: 560px; float: left;">
+    <div id="map-canvas" style="height: 250px; width: 560px; margin: auto;">
         <big>&#8982;</big> <%-location.lat.u%> / <%-location.long.u%>
-    </div> 
+    </div> <br>
 </script>
+
+<script id="location_js" type="text/uduvudu-template">
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyAFRTcPPyYit9ERj9COlgpgYW-Ve-lUeUs&sensor=false&callback=initializeMap";
+        document.body.appendChild(script);
+        
+        initializeMap = function () {
+
+            var myLatlng = new google.maps.LatLng(<%-location.lat.u%>, <%-location.long.u%>);
+            var mapOptions = { center: myLatlng, disableDefaultUI: true, zoomControl: true, zoom: 12, mapTypeId: google.maps.MapTypeId.ROADMAP };
+            var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+            var marker = new google.maps.Marker({
+              position: myLatlng,
+              map: map
+            });
+        };
+</script>
+
 
 
 
@@ -561,13 +581,19 @@
 
 <script id="link" type="text/uduvudu-template">
     <p>
-      <strong>Link : </strong><a href="<%-link.u%>"><%-link.u%></a> <br>
+      <strong>Liens : </strong><a href="<%-link.u%>"><%-link.u%></a> <br>
     </p>
 </script>
 
 <script id="style" type="text/uduvudu-template">
     <p>
       <strong>Style : </strong><a href="<%-style.u%>"><%-style.u%></a> <br>
+    </p>
+</script>
+
+<script id="region" type="text/uduvudu-template">
+    <p>
+      <strong>Ressource : </strong><a href="<%-region.u%>"><%-region.u%></a> <br>
     </p>
 </script>
 
