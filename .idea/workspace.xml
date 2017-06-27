@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f732adc-b929-4158-8970-dade3635595f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Monuments/css/styles.css" afterPath="$PROJECT_DIR$/Monuments/css/styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Monuments/index.html" afterPath="$PROJECT_DIR$/Monuments/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Monuments/js/search.js" afterPath="$PROJECT_DIR$/Monuments/js/search.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,7 +20,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Monuments/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1819">
+            <state relative-caret-position="1462">
               <caret line="107" column="40" lean-forward="false" selection-start-line="107" selection-start-column="40" selection-end-line="107" selection-end-column="40" />
               <folding />
             </state>
@@ -53,10 +50,10 @@
       <file leaf-file-name="styles.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Monuments/css/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1530">
-              <caret line="90" column="20" lean-forward="false" selection-start-line="90" selection-start-column="20" selection-end-line="90" selection-end-column="20" />
+            <state relative-caret-position="459">
+              <caret line="91" column="0" lean-forward="true" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
               <folding>
-                <marker date="1498554158611" expanded="true" signature="3623:3651" ph="{...}" />
+                <marker date="1498554466999" expanded="true" signature="3568:3596" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -88,7 +85,7 @@
       <file leaf-file-name="makeQuery.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Monuments/makeQuery.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
+            <state relative-caret-position="544">
               <caret line="149" column="32" lean-forward="true" selection-start-line="149" selection-start-column="32" selection-end-line="149" selection-end-column="32" />
               <folding />
             </state>
@@ -365,7 +362,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44874000" />
+    <option name="totallyTimeSpent" value="45189000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -468,7 +465,7 @@
         <state relative-caret-position="1479">
           <caret line="87" column="21" lean-forward="false" selection-start-line="87" selection-start-column="21" selection-end-line="87" selection-end-column="21" />
           <folding>
-            <marker date="1498554158611" expanded="true" signature="3623:3651" ph="{...}" />
+            <marker date="1498554466999" expanded="true" signature="3568:3596" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -573,7 +570,7 @@
         <state relative-caret-position="17">
           <caret line="1" column="23" lean-forward="false" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
           <folding>
-            <marker date="1498554158611" expanded="true" signature="3623:3651" ph="{...}" />
+            <marker date="1498554466999" expanded="true" signature="3568:3596" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -620,7 +617,7 @@
         <state relative-caret-position="-253">
           <caret line="1" column="23" lean-forward="false" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
           <folding>
-            <marker date="1498554158611" expanded="true" signature="3623:3651" ph="{...}" />
+            <marker date="1498554466999" expanded="true" signature="3568:3596" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -744,14 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Monuments/makeQuery.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="149" column="32" lean-forward="true" selection-start-line="149" selection-start-column="32" selection-end-line="149" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Monuments/js/search.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="538">
@@ -760,9 +749,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Monuments/makeQuery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="149" column="32" lean-forward="true" selection-start-line="149" selection-start-column="32" selection-end-line="149" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Monuments/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1819">
+        <state relative-caret-position="1462">
           <caret line="107" column="40" lean-forward="false" selection-start-line="107" selection-start-column="40" selection-end-line="107" selection-end-column="40" />
           <folding />
         </state>
@@ -770,10 +767,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Monuments/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="90" column="20" lean-forward="false" selection-start-line="90" selection-start-column="20" selection-end-line="90" selection-end-column="20" />
+        <state relative-caret-position="459">
+          <caret line="91" column="0" lean-forward="true" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
           <folding>
-            <marker date="1498554158611" expanded="true" signature="3623:3651" ph="{...}" />
+            <marker date="1498554466999" expanded="true" signature="3568:3596" ph="{...}" />
           </folding>
         </state>
       </provider>
