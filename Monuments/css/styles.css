@@ -55,10 +55,8 @@ strong{
 }
 
 #main{
-    background-color: #fff;
     margin-top: 50px;
     margin-bottom: 50px;
-    border: 1px solid #fff;
 }
 
 #search_header{
@@ -68,8 +66,9 @@ strong{
     margin-top: 25px;
 }
 
-#infos{
-    background: #fff;
+#info{
+    margin-top: 25px;
+    background: white;
 
 }
 
@@ -184,6 +183,7 @@ label + input[type=radio] + label {
     border: solid 3px rgba(51, 47, 53, 0.8);
     display: inline-block;
     margin-top: 50px;
+    border-radius: 10px;
     overflow: hidden;
 }
 
@@ -207,7 +207,7 @@ label + input[type=checkbox] + label {
 .checkbox {
     border: solid 3px rgba(51, 47, 53, 0.8);
     display: inline-block;
-    margin-top: 100px;
+    margin-top: 50px;
     margin-left: 20px;
     border-radius: 10px;
     overflow: hidden;
