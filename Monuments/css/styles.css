@@ -196,6 +196,11 @@ label + input[type=radio] + label {
     overflow: hidden;
 }
 
+#
+.marg_r{
+    margin-left: 10px;
+}
+
 /* Checkbox */
 
 input[type=checkbox] {
