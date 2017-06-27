@@ -59,6 +59,13 @@ strong{
     margin-bottom: 50px;
 }
 
+#Search{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+
+
 #search_header{
     display: block;
     background: #fff;
@@ -66,9 +73,10 @@ strong{
     margin-top: 25px;
 }
 
+ 
 #info{
     margin-top: 25px;
-    background: white;
+    background: #fff;
 
 }
 
@@ -85,7 +93,8 @@ body{
 
 section{
     margin-left, margin-right : 100px;
-    margin-top, margin-bottom : 20px;
+    margin-top, margin-bottom: 20px;
+
     background: #fff;
 }
 
@@ -180,6 +189,7 @@ label + input[type=radio] + label {
 }
 .radio-group {
     flex:1;
+    border-radius: 10px;
     border: solid 3px rgba(51, 47, 53, 0.8);
     display: inline-block;
     margin-top: 50px;
