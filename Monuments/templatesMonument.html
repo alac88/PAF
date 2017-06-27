@@ -1,6 +1,5 @@
 <!--
-# Visualizer Tempaltes
--->
+
 <script id="title" type="text/uduvudu-template">
     <h1><%-title.u%></h1>
 </script>
@@ -205,30 +204,25 @@
   </div>
 </script>
 
-<!-- container for literals -->
 <script id="literals" type="text/uduvudu-template">
     <div style="clear: both;">
         <% _.each(literals, function(e) {print(template(e.literal))}); %>
     </div>
 </script>
 
-<!-- container for literals -->
 <script id="unknowns" type="text/uduvudu-template">
     <div style="clear: both;">
         <% /*_.each(unknowns, function(e) {print(template(e.unknown))});*/ %>
     </div>
 </script>
 
-<!-- literal -->
 <script id="literal" type="text/uduvudu-template">
     <div style=" width: 140px; height: 140px; float: left; overflow: hidden;"><p title="<%-literal.subject.u%> - <%-literal.predicate.u%>"><b><%-literal.name.u%></b>:<br /> <%-literal.text.u%></p></div>
 </script>
 
-<!-- void -->
 <script id="void" type="text/uduvudu-template">
 </script>
 
-<!-- unknown -->
 <script id="unknown" type="text/uduvudu-template">
   <div style=" width: 140px; height: 140px; float: left; overflow: hidden;">
       <small><p><%=unknown.subject.u%><br />&#9608;<br /><%=unknown.predicate.u%><br />&#9608;<br /><%=unknown.object.u%></p></small>
@@ -241,7 +235,7 @@
 
 
 
-<!-- Nouveaux templates pour les nouveaux matchers -->
+
 
 <script id="birthPlace" type="text/uduvudu-template">
     <p>
@@ -389,5 +383,192 @@
     </p>
 </script>
 
+
+
+-->
+
+
+
+<!-- Templates Level 1 -->
+
+<script id="title" type="text/uduvudu-template">
+    <h1><%-title.u%></h1>
+</script>
+
+<script id="img" type="text/uduvudu-template">
+  <div style="width: 140px; height: 235px; float: left">
+    <img style="min-width: 140px; min-height: 235px;" src="<%-img_url.u%>" class="img-responsive" />
+  </div>
+</script>
+
+<script id="abstract" type="text/uduvudu-template">
+  <div style="width: 560px; padding: 4px; float: left;">
+    <h2>Description</h2>
+    <p><%-abstract.u%></p>
+  </div>
+</script>
+
+
+
+<!-- Templates Level 2 -->
+
+<script id="city" type="text/uduvudu-template">
+    <p>
+      <strong>Ville : </strong><a href="<%-city.u%>"><%-dates.buildingStartDate.u%></a> <br>
+    </p>
+</script>
+
+<script id="country" type="text/uduvudu-template">
+    <p>
+      <strong>Pays : </strong><a href="<%-country.u%>"><%-dates.buildingStartDate.u%></a> <br>
+    </p>
+</script>
+
+<script id="street" type="text/uduvudu-template">
+    <p>
+      <strong>Adresse : </strong><a href="<%-street.u%>"><%-dates.buildingStartDate.u%></a> <br>
+    </p>
+</script>
+
+<script id="street2" type="text/uduvudu-template">
+    <p>
+      <strong>Adresse 2 : </strong><a href="<%-street2.u%>"><%-dates.buildingStartDate.u%></a> <br>
+    </p>
+</script>
+
+<script id="buildingStartDate" type="text/uduvudu-template">
+    <p>
+      <strong>Début de la construction : </strong><a href="<%-buildingStartDate.u%>"><%-dates.buildingStartDate.u%></a> <br>
+    </p>
+</script>
+
+<script id="buildingEndDate" type="text/uduvudu-template">
+    <p>
+      <strong>Fin de la construction : </strong><a href="<%-buildingEndDate.u%>"><%-dates.buildingEndDate.u%></a> <br>
+    </p>
+</script>
+
+
+<script id="location" type="text/uduvudu-template">
+    <div id="map-canvas" style="height: 250px; width: 560px; float: left;">
+        <big>&#8982;</big> <%-location.lat.u%> / <%-location.long.u%>
+    </div> 
+</script>
+
+
+
+
+
+
+<!-- Templates Level 3-->
+
+<script id="birthPlace" type="text/uduvudu-template">
+    <p>
+      <strong>Lieu de naissance de : </strong><a href="<%-text.u%>"><%-birthPlace.u%></a> <br>
+    </p>
+</script>
+
+<script id="deathPlace" type="text/uduvudu-template">
+    <p>
+      <strong>Lieu de décès de : </strong><a href="<%-text.u%>"><%-deathPlace.u%></a> <br>
+    </p>
+</script>
+
+<script id="architect" type="text/uduvudu-template">
+    <p>
+      <strong>Architecte : </strong><a href="<%-architect.u%>"><%-architect.u%></a> <br>
+    </p>
+</script>
+
+
+
+
+<script id="website" type="text/uduvudu-template">
+    <p>
+      <strong>Website : </strong><a href="<%-website.u%>"><%-website.u%></a> <br>
+    </p>
+</script>
+
+<script id="long" type="text/uduvudu-template">
+    <p>
+      <strong>Longitude : </strong><%-long.u%><br>
+    </p>
+</script>
+
+<script id="lat" type="text/uduvudu-template">
+    <p>
+      <strong>Latitude : </strong><%-lat.u%><br>
+    </p>
+</script>
+
+<script id="architecturalStyle" type="text/uduvudu-template">
+    <p>
+      <strong>Style d'architecture : </strong><a href="<%-architecturalStyle.u%>"><%-architecturalStyle.u%></a> <br>
+    </p>
+</script>
+
+<script id="style" type="text/uduvudu-template">
+    <p>
+      <strong>Style : </strong><a href="<%-style.u%>"><%-style.u%></a> <br>
+    </p>
+</script>
+
+<script id="subject" type="text/uduvudu-template">
+    <p>
+      <strong>Sujet : </strong><a href="<%-subject.u%>"><%-subject.u%></a> <br>
+    </p>
+</script>
+
+<script id="name" type="text/uduvudu-template">
+    <p>
+      <strong>Nom : </strong><a href="<%-name.u%>"><%-name.u%></a> <br>
+    </p>
+</script>
+
+
+
+
+
+<script id="wikiPageRevisionID" type="text/uduvudu-template">
+    <p>
+      <strong>wikiPageRevisionID : </strong><a href="<%-wikiPageRevisionID.u%>"><%-wikiPageRevisionID.u%></a> <br>
+    </p>
+</script>
+
+<script id="wikiPageID" type="text/uduvudu-template">
+    <p>
+      <strong>wikiPageID : </strong><a href="<%-wikiPageID.u%>"><%-wikiPageID.u%></a> <br>
+    </p>
+</script>
+
+<script id="seeAlso" type="text/uduvudu-template">
+    <p>
+      <strong>Voir également : </strong><a href="<%-seeAlso.u%>"><%-seeAlso.u%></a> <br>
+    </p>
+</script>
+
+<script id="sameAs" type="text/uduvudu-template">
+    <p>
+      <strong>Dans la même catégorie : </strong><a href="<%-sameAs.u%>"><%-sameAs.u%></a> <br>
+    </p>
+</script>
+
+<script id="differentFrom" type="text/uduvudu-template">
+    <p>
+      <strong>Ne pas confondre avec : </strong><a href="<%-differentFrom.u%>"><%-differentFrom.u%></a> <br>
+    </p>
+</script>
+
+<script id="link" type="text/uduvudu-template">
+    <p>
+      <strong>Link : </strong><a href="<%-link.u%>"><%-link.u%></a> <br>
+    </p>
+</script>
+
+<script id="style" type="text/uduvudu-template">
+    <p>
+      <strong>Style : </strong><a href="<%-style.u%>"><%-style.u%></a> <br>
+    </p>
+</script>
 
 
