@@ -46,3 +46,37 @@ function ButtonSearch(){
     }
 
 }
+
+/*function ButtonSearch(){
+    var URI1 = dbpediaQueries[labels["resourceMonuments"]];
+    var URI2 = dbpediaQueries[labels["resourceHistoricalPlaces"]];
+    var URI3 = dbpediaQueries[labels["resourceWorldHeritageSites"]];
+    var URI4 = dbpediaQueries[labels["resourceArchitecturalStructures"]];
+    if (!document.getElementById("resourceMonuments").checked){
+        URI1=null;
+    }
+    if (!document.getElementById("resourceHistoricalPlaces").checked){
+        URI2=null;
+    }
+    if (!document.getElementById("resourceWorldHeritageSites").checked){
+        URI3=null;
+    }
+    if (!document.getElementById("resourceArchitecturalStructures").checked){
+        URI4=null;
+    }
+    var array=new Array(URI1,URI2,URI3,URI4);
+    for (j=0; j<array.length; j++){
+        if (array[j]==null){
+            for (k=j+1; k<array.length; k++){
+                array[k-1] = array[k];
+            }
+            array[array.length-1] = null;
+            j--;
+            break;
+        }
+    }
+    var category=make_combined_filter(array[0],array[1],array[2],array[3]);
+    setResult(category);
+
+
+}*/
