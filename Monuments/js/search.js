@@ -49,10 +49,9 @@ function FillSearch(event) {
 
 }*/
 
-var launchQuery=true;
-
 function ButtonSearch(){
     if(launchQuery) {
+		launchQuery = false;
         var URI1 = dbpediaQueries[labels["resourceMonuments"]][3];
         var URI2 = dbpediaQueries[labels["resourceHistoricalPlaces"]][3];
         var URI3 = dbpediaQueries[labels["resourceWorldHeritageSites"]][3];
@@ -93,6 +92,7 @@ function ButtonSearch(){
 			countryselected = countryselectedvalue;
 		}
 		
+		//alert("CS=" + countryselected);
         setResult("combinedQuery",countryselected,make_combined_filter(array[0],array[1],array[2],array[3],regexp),0);
         if (ul.childNodes.length<limit){
             //launchQuery=false;
