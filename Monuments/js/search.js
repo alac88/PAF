@@ -1,3 +1,12 @@
+//Barre de recherche de pays
+
+function CountryLoad(){
+    //permet de charger les pays
+}
+
+
+//Barre de recherche
+
 function Search() {
             // Declare variables
             var input, filter, ul, li, a, i;
