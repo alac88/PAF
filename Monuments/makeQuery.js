@@ -1,5 +1,9 @@
 var countryArray = null;
 
+var currenCountryName = "";
+
+var launchQuery = true;
+
 var nameAndURIArray = null;
 var currentFilter = "";
 var currentOffSet = 0;
@@ -69,28 +73,30 @@ function setResult(category,countryName,filter,offset)
         maxOffset = 0;
         nameAndURIArray = new Array();
         currentOffSet = 0;
+		currenCountryName = "";
     }
-
+	currenCountryName = countryName;
     currentFilter = filter;
     currentCategory = category;
     currentOffSet = offset;
     maxOffset++;
     var queryDatas = dbpediaQueries[labels[category]];
     var query = make_query(queryDatas[0],"",queryDatas[1],queryDatas[2],queryDatas[3],filter,queryDatas[4],offset);
-	
+	//alert("cN=" + countryName);
 	if(countryName.localeCompare("") != 0)
 		query = make_sub_queries_country(query,countryName);
 	
-	alert(query);
+	//alert(query);
     var encodedQuery = encode_query(1,query,"json");
     make_name_and_URI_array(encodedQuery,"json");
 }
 
 function make_sub_queries_country(query,countryName)
 {
-	var subquery1 = make_query("distinct ?s ?o"," { " + query + " } ","?s","dbo:location","?o","",limit,0);
-	var filter = "filter (?country = dbr:" + countryName + ")";
-	return make_query("distinct ?s"," { " + subquery1 + " } ","?o","dbo:country","?country",filter,limit,0);
+	var filter1 = "filter (?loc = dbo:location || ?loc = dbo:country)";
+	var subquery1 = make_query("distinct ?s ?o"," { " + query + " } ","?s","?loc","?o",filter1,limit,0);
+	var filter2 = "filter (?country = dbr:" + countryName + ")";
+	return make_query("distinct ?s"," { " + subquery1 + " } ","?o","dbo:country","?country",filter2,limit,0);
 }
 
 function display_array(arrayToDisplay)
@@ -165,9 +171,12 @@ function make_name_and_URI_array(queryURI,format)
                 json_to_array(jsonResult);
 
                 if(nameAndURIArray.length % limit == 0 && maxOffset < 2)
-                    setResult(currentCategory,currentFilter,currentOffSet + limit);
+                    setResult(currentCategory,currenCountryName,currentFilter,currentOffSet + limit);
                 else
+				{
                     display_final(nameAndURIArray);
+					launchQuery = true;
+				}
 
             } else {
                 console.error('Could not load page.');
