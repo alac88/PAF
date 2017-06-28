@@ -85,8 +85,15 @@ function ButtonSearch(){
         }
         //alert(array);
         var regexp = make_regexp("str(?s)","http://dbpedia.org/resource/.*" + input.value.replace(/ /gi,"_") + ".*","i");
-        var countryselected=document.getElementById('country').value;
-        setResult("combinedQuery","",make_combined_filter(array[0],array[1],array[2],array[3],regexp,""),0);
+        var countryselectedvalue=document.getElementById('country').value;
+		var countryselected = "";
+		
+		if(countryselectedvalue.localeCompare("Tous") != 0)
+		{
+			countryselected = countryselectedvalue;
+		}
+		
+        setResult("combinedQuery",countryselected,make_combined_filter(array[0],array[1],array[2],array[3],regexp),0);
         if (ul.childNodes.length<limit){
             //launchQuery=false;
         }
