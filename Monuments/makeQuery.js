@@ -1,4 +1,4 @@
-
+var countryArray = null;
 
 var nameAndURIArray = null;
 var currentFilter = "";
@@ -171,8 +171,41 @@ function make_name_and_URI_array(queryURI,format)
     }
 }
 
+function make_country_array()
+{
+	var query = make_query("distinct ?o"," {select distinct ?o where {?s dbo:country ?o} LIMIT 10000} ","?o","dbo:flag","?p","",1000,0);
+    var encodedQuery = encode_query(1,query,"json");
+    var jsonResult = null;
+	var request2 = new XMLHttpRequest();
+	request2.open('GET', encodedQuery, true);
 
+	request2.onload = function(error) {
+		if (request2.status >= 200 && request2.status < 400) {
+			// Success!
+			//document.getElementById('containerMain').innerHTML = request.responseText;
+			jsonResult = request2.responseText;
+			var parsed = JSON.parse(jsonResult);
+			var resultsArray = parsed.results.bindings;
+			var resultsCard = resultsArray.length;
+			
+			countryArray = new Array();
+			
+			for(var i=0;i<resultsCard;i++)
+			{
+				countryArray.push(new Array(resultsArray[i].o.value,get_resource_name(resultsArray[i].o.value)));
+			}
 
+		} else {
+			console.error('Could not load page.');
+		}
+	};
+
+	request2.onerror = function(error) {
+		console.error('Could not load page.');
+	};
+
+	request2.send();
+}
 
 function display_final(arrayToDisplay){
     var ul = document.getElementById("inputList");
