@@ -68,16 +68,20 @@ function ButtonSearch(){
             URI4 = null;
         }
         var array = new Array(URI1, URI2, URI3, URI4);
-        for (j = 0; j < array.length; j++) {
+        for (var j = 0; j < array.length; j++) {
             if (array[j] == null) {
-                for (k = j + 1; k < array.length; k++) {
-                    array[k - 1] = array[k];
+                for (var k = j + 1; k < array.length; k++) {
+                    if(array[k]!=null){
+                        array[j]=array[k];
+                        array[k]=null;
+                        break;
+                    }
+
                 }
-                array[array.length - 1] = null;
-                j--;
-                break;
+
             }
         }
+        alert(array);
         var regexp = make_regexp("str(?s)","http://dbpedia.org/resource/.*" + input.value.replace(/ /gi,"_") + ".*","i");
 
         setResult("combinedQuery",make_combined_filter(array[0],array[1],array[2],array[3],regexp),0);

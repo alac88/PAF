@@ -77,6 +77,7 @@ function setResult(category,filter,offset)
     maxOffset++;
     var queryDatas = dbpediaQueries[labels[category]];
     var query = make_query(queryDatas[0],queryDatas[1],queryDatas[2],queryDatas[3],filter,queryDatas[4],offset);
+    alert(query);
     var encodedQuery = encode_query(1,query,"json");
     make_name_and_URI_array(encodedQuery,"json");
 }
