@@ -1,6 +1,6 @@
 /******************** RDF DATABASE DBPEDIA ********************/
 
-var limit = 10000;
+var limit = 1000;
 var labels = {places : 0,
     resourceMonuments : 1,
     resourceHistoricalPlaces : 2,
@@ -14,7 +14,7 @@ var dbpediaQueries = new Array(new Array("","?s","rdfs:subClassOf","<http://dbpe
     new Array("distinct ?s","?s","<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>","<http://dbpedia.org/ontology/HistoricPlace>",limit),
     new Array("distinct ?s","?s","<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>","<http://dbpedia.org/ontology/WorldHeritageSite>",limit),
     new Array("distinct ?s","?s","<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>","<http://dbpedia.org/ontology/ArchitecturalStructure>",limit),
-    new Array("?s","?s","<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>","?o.",limit)
+    new Array("distinct ?s","?s","<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>","?o.",limit)
 );
 
 

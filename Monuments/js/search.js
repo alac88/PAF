@@ -90,7 +90,7 @@ function ButtonSearch(){
 
             }
         }
-        alert(array);
+        //alert(array);
         var regexp = make_regexp("str(?s)","http://dbpedia.org/resource/.*" + input.value.replace(/ /gi,"_") + ".*","i");
 
         setResult("combinedQuery",make_combined_filter(array[0],array[1],array[2],array[3],regexp),0);
