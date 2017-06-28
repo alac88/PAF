@@ -31,9 +31,9 @@ var outputFormats = {html : "text%2Fhtml",
 });*/
 
 // return a query
-function make_query(resultAsked,s,p,o,filter,limit,offset)
+function make_query(resultAsked,otherQuery,s,p,o,filter,limit,offset)
 {
-    return "select " + resultAsked + " where { " + s + " " + p + " " + o + " " + filter + " } limit " + limit + " offset " + offset;
+    return "select " + resultAsked + " where { " + otherQuery + s + " " + p + " " + o + " " + filter + " } limit " + limit + " offset " + offset;
 }
 
 // makes an url asking for the results of a query on a database i a specified format
@@ -76,8 +76,8 @@ function setResult(category,filter,offset)
     currentOffSet = offset;
     maxOffset++;
     var queryDatas = dbpediaQueries[labels[category]];
-    var query = make_query(queryDatas[0],queryDatas[1],queryDatas[2],queryDatas[3],filter,queryDatas[4],offset);
-    alert(query);
+    var query = make_query(queryDatas[0],"",queryDatas[1],queryDatas[2],queryDatas[3],filter,queryDatas[4],offset);
+    //alert(query);
     var encodedQuery = encode_query(1,query,"json");
     make_name_and_URI_array(encodedQuery,"json");
 }
