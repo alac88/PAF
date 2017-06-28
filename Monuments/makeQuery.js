@@ -194,6 +194,20 @@ function make_country_array()
 			{
 				countryArray.push(new Array(resultsArray[i].o.value,get_resource_name(resultsArray[i].o.value)));
 			}
+            var list=document.getElementById('country');
+            list.innerHTML = "";
+            var nbCtry = countryArray.length;
+            var opt=document.createElement('option');
+            opt.value="";
+            opt.innerHTML="Tous";
+            list.appendChild(opt);
+            for(var i=0;i<nbCtry;i++)
+            {
+                var optt=document.createElement('option');
+                optt.value=countryArray[i][1];
+                optt.innerHTML=countryArray[i][1].replace(/_/gi," ");
+                list.appendChild(optt);
+            }
 
 		} else {
 			console.error('Could not load page.');

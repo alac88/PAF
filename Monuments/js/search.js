@@ -1,10 +1,3 @@
-//Barre de recherche de pays
-
-function CountryLoad(){
-    //permet de charger les pays
-}
-
-
 //Barre de recherche
 
 function Search() {

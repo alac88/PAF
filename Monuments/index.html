@@ -51,9 +51,7 @@
          <input type="checkbox" id="resourceArchitecturalStructures" name="type" value="4"><label for="resourceArchitecturalStructures">Structures architecturales</label>
         </div>
 
-        <select name="countries" id="country" >
-            <option value="">Tous</option>
-        </select>
+        <select name="countries" id="country" ></select>
     </div>
 
         <input type="text" id="input" onkeyup="ButtonSearch()" placeholder="Ecrivez pour lancer la recherche">
@@ -168,6 +166,8 @@
 </script>
 <script type="text/javascript">
     $("#option-three").trigger("click");
+    make_country_array();
+
 </script>
 <script id="bootstrap.min" src="js/bootstrap.min.js"></script>
 <script src="js/search.js"></script>
