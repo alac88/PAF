@@ -55,7 +55,8 @@ strong{
 }
 
 #main{
-    background-color: #fff;
+    margin-right: 50px;
+    margin-left: 50px;
     margin-top: 50px;
     margin-bottom: 50px;
 }
@@ -73,6 +74,7 @@ strong{
     border-bottom: 1px solid #ddd;
     margin-top: 25px;
 }
+
  
 #info{
     margin-top: 25px;
@@ -139,6 +141,7 @@ footer {
     margin: 0;
     width:80%;
     margin-left: 10%;
+    margin-bottom: 10px;
 }
 
 #inputList li a {
@@ -193,7 +196,13 @@ label + input[type=radio] + label {
     border: solid 3px rgba(51, 47, 53, 0.8);
     display: inline-block;
     margin-top: 50px;
+    border-radius: 10px;
     overflow: hidden;
+}
+
+#
+.marg_r{
+    margin-left: 10px;
 }
 
 /* Checkbox */
@@ -216,7 +225,7 @@ label + input[type=checkbox] + label {
 .checkbox {
     border: solid 3px rgba(51, 47, 53, 0.8);
     display: inline-block;
-    margin-top: 100px;
+    margin-top: 50px;
     margin-left: 20px;
     border-radius: 10px;
     overflow: hidden;

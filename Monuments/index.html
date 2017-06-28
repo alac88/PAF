@@ -22,15 +22,17 @@
 <body>
 
 <section id="left_column">
-    <img src="img/tpt.png" height="150px" width="150px"><br><br>
+    <a href="https://www.telecom-paristech.fr" target="_blank"><img src="img/tpt.png" height="150px" width="150px"></a><br><br>
     <h1>PAF 2017</h1>
     <H3>Projet étudiant de 1ère année</H3>
 
-    <h2><a href="https://paf.telecom-paristech.fr/projets/exploitation-donnees-lopen-data-et-web-semantique">Exploitation de données de l'Open Data et du Web Sémantique</a></h2>
+    <h2><a href="https://paf.telecom-paristech.fr/projets/exploitation-donnees-lopen-data-et-web-semantique" target="_blank">Exploitation de données de l'Open Data et du Web Sémantique</a></h2>
 
     <a class="button" href="poster.pdf" target="_blank">Télécharger notre poster</a>
 
 </section>
+
+
 
 <section id="right_column">
 
@@ -50,15 +52,21 @@
         </div>
     </div>
 
-        <input type="text" id="input" onkeyup="Search()" placeholder="Search for names..">
-        <button id="Search" onclick="ButtonSearch()">Chercher</button>
+        <input type="text" id="input" onkeyup="ButtonSearch()" placeholder="Search for names..">
             <ul id="inputList" onclick="FillSearch()" >
 
             </ul>
 
     </header>
 
-
+    <script type="text/javascript">
+        document.getElementById("input").onkeypress=function(e){
+            if (e.keyCode==8) {
+                launchQuery = true;
+                ButtonSearch();
+            }
+        }
+    </script>
 
 
 <div id="info">
@@ -71,6 +79,8 @@
            </div>
          </div>
     </div>
+
+    <br>
 
     <!-- where the templates are injected -->
     <div id="templates"></div>
@@ -132,16 +142,22 @@
                 var suffixe=get_resource_name(this.src);
 
                 if (suffixe.localeCompare('matcher_level1.js')==0 || suffixe.localeCompare('matcher_level2.js')==0 || suffixe.localeCompare('matcher_level3.js')==0) {
-
+                    this.parentNode.removeChild(document.getElementById("distuduvudu"));
                     this.parentNode.removeChild( this );
                 }}
             });
         // DOM: Create the script element
         var jsElm = document.createElement("script");
+        var distuduvudu = document.createElement("script");
         // set the type attribute
         jsElm.type = "application/javascript";
+        distuduvudu.type = "text/javascript";
         // make the script element load file
         jsElm.src = file;
+        distuduvudu.src="dist/uduvudu.js";
+        distuduvudu.id="distuduvudu";
+
+        document.body.insertBefore(distuduvudu,document.getElementById("bootstrap.min"));
         document.body.insertBefore(jsElm,document.getElementById("distuduvudu"));
         // finally insert the element to the body element in order to load the script
     }
@@ -149,8 +165,7 @@
 <script type="text/javascript">
     $("#option-three").trigger("click");
 </script>
-<script id="distuduvudu" src="dist/uduvudu.js" type="text/javascript"></script>
-<script src="js/bootstrap.min.js"></script>
+<script id="bootstrap.min" src="js/bootstrap.min.js"></script>
 <script src="js/search.js"></script>
 <script src="js/infoMonument.js"></script>
 
