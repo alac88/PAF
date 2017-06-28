@@ -62,7 +62,7 @@ function encode_query(dataBaseID,query,outputID)
     return str.replace(/%20/gi,"+");
 }
 
-function setResult(category,filter,offset)
+function setResult(category,otherQuery,filter,offset)
 {
     if(offset == 0)
     {
@@ -76,8 +76,7 @@ function setResult(category,filter,offset)
     currentOffSet = offset;
     maxOffset++;
     var queryDatas = dbpediaQueries[labels[category]];
-    var query = make_query(queryDatas[0],"",queryDatas[1],queryDatas[2],queryDatas[3],filter,queryDatas[4],offset);
-    //alert(query);
+    var query = make_query(queryDatas[0],otherQuery,queryDatas[1],queryDatas[2],queryDatas[3],filter,queryDatas[4],offset);
     var encodedQuery = encode_query(1,query,"json");
     make_name_and_URI_array(encodedQuery,"json");
 }
