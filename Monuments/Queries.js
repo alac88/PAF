@@ -6,7 +6,8 @@ var labels = {places : 0,
     resourceHistoricalPlaces : 2,
     resourceWorldHeritageSites : 3,
     resourceArchitecturalStructures : 4,
-    combinedQuery : 5};
+    combinedQuery : 5,
+	countryQuery : 6};
 
 // interesting queries for RDF dbpedia
 var dbpediaQueries = new Array(new Array("","?s","rdfs:subClassOf","<http://dbpedia.org/ontology/Place>",limit),
@@ -14,9 +15,9 @@ var dbpediaQueries = new Array(new Array("","?s","rdfs:subClassOf","<http://dbpe
     new Array("distinct ?s","?s","<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>","<http://dbpedia.org/ontology/HistoricPlace>",limit),
     new Array("distinct ?s","?s","<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>","<http://dbpedia.org/ontology/WorldHeritageSite>",limit),
     new Array("distinct ?s","?s","<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>","<http://dbpedia.org/ontology/ArchitecturalStructure>",limit),
-    new Array("distinct ?s","?s","<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>","?o.",limit)
+    new Array("distinct ?s","?s","<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>","?o.",limit),
+	new Array("distinct ?s","?o","dbo:country","?country.",limit)
 );
-
 
 function make_combined_filter(URI1,URI2,URI3,URI4,regexp)
 {
