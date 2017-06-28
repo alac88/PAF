@@ -18,7 +18,7 @@ var dbpediaQueries = new Array(new Array("","?s","rdfs:subClassOf","<http://dbpe
 					);			  
 
 					
-function make_combined_filter(URI1,URI2,URI3,URI4,regexp)
+function make_combined_filter(URI1,URI2,URI3,URI4,regexp,country)
 {
 	var resultFilter = " filter ((?o = " + URI1;
 	
@@ -32,7 +32,12 @@ function make_combined_filter(URI1,URI2,URI3,URI4,regexp)
 		resultFilter = resultFilter.concat(" || ?o = " + URI4);
 	
 	if(regexp.localeCompare("") != 0)
-		resultFilter = resultFilter.concat(" ) && " + regexp + " )");
+		resultFilter = resultFilter.concat(" ) && (" + regexp + " )");
+	else
+		resultFilter = resultFilter.concat(" ))");
+	
+	if(country.localeCompare("") != 0)
+		resultFilter = resultFilter.concat(" && (?country = dbr:" + country + " )");
 	else
 		resultFilter = resultFilter.concat(" ))");
 	

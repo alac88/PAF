@@ -1,10 +1,3 @@
-//Barre de recherche de pays
-
-function CountryLoad(){
-    //permet de charger les pays
-}
-
-
 //Barre de recherche
 
 function Search() {
@@ -92,8 +85,8 @@ function ButtonSearch(){
         }
         //alert(array);
         var regexp = make_regexp("str(?s)","http://dbpedia.org/resource/.*" + input.value.replace(/ /gi,"_") + ".*","i");
-
-        setResult("combinedQuery",make_combined_filter(array[0],array[1],array[2],array[3],regexp),0);
+		
+        setResult("combinedQuery","",make_combined_filter(array[0],array[1],array[2],array[3],regexp,""),0);
         if (ul.childNodes.length<limit){
             //launchQuery=false;
         }
