@@ -62,7 +62,7 @@ function encode_query(dataBaseID,query,outputID)
     return str.replace(/%20/gi,"+");
 }
 
-function setResult(category,otherQuery,filter,offset)
+function setResult(category,countryName,filter,offset)
 {
     if(offset == 0)
     {
@@ -76,9 +76,21 @@ function setResult(category,otherQuery,filter,offset)
     currentOffSet = offset;
     maxOffset++;
     var queryDatas = dbpediaQueries[labels[category]];
-    var query = make_query(queryDatas[0],otherQuery,queryDatas[1],queryDatas[2],queryDatas[3],filter,queryDatas[4],offset);
+    var query = make_query(queryDatas[0],"",queryDatas[1],queryDatas[2],queryDatas[3],filter,queryDatas[4],offset);
+	
+	if(countryName.localeCompare("") != 0)
+		query = make_sub_queries_country(query,countryName);
+	
+	alert(query);
     var encodedQuery = encode_query(1,query,"json");
     make_name_and_URI_array(encodedQuery,"json");
+}
+
+function make_sub_queries_country(query,countryName)
+{
+	var subquery1 = make_query("distinct ?s ?o"," { " + query + " } ","?s","dbo:location","?o","",limit,0);
+	var filter = "filter (?country = dbr:" + countryName + ")";
+	return make_query("distinct ?s"," { " + subquery1 + " } ","?o","dbo:country","?country",filter,limit,0);
 }
 
 function display_array(arrayToDisplay)
