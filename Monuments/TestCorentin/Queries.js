@@ -1,6 +1,6 @@
 /******************** RDF DATABASE DBPEDIA ********************/
 
-var limit = 10000;
+var limit = 100;
 var labels = {places : 0,
 			  resourceMonuments : 1,
 			  resourceHistoricalPlaces : 2,

@@ -1,3 +1,7 @@
+/* https://stackoverflow.com/questions/17742950/how-can-i-reuse-the-result-of-a-sparql-query-to-another-query */
+
+/*select distinct ?s ?o ?c where {{select distinct ?s ?o where { {select distinct ?s where { ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Monument>  } limit 10 offset 0} ?s dbo:location ?o } limit 10000 offset 0} ?o dbo:country ?c} limit 10000 offset 0 */
+
 // buttons
 
 var buttons = new Array(document.getElementById("resourceMonuments"),

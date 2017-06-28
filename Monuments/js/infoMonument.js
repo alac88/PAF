@@ -7,9 +7,9 @@ function load_monument(name) {
         // instantiate rdf-ext object
         var store = new rdf.LdpStore();
 //        var source = 'http://dbpedia.org/resource/Fribourg';
-		var adpatedName = adapt_name(name);
-        var source = 'http://dbpedia.org/resource/' + adpatedName; // graph RDF source
-        var resource = 'http://dbpedia.org/resource/' + adpatedName; // stating point (URI) in the graph
+		var adaptedName = adapt_name(name);
+        var source = 'http://dbpedia.org/data/' + adaptedName + '.rdf';; // graph RDF source
+        var resource = 'http://dbpedia.org/resource/' + adaptedName; // stating point (URI) in the graph
 
        // something about what is going on
         document.getElementById('main').innerHTML =  ''
@@ -66,8 +66,7 @@ function load_monument(name) {
     
 function adapt_name(name)
 {
-	var newName = name.replace(/ /gi, "_");
-	return newName.replace(/-/gi,"_");
+	return name.replace(/ /gi, "_");
 }
 
 
