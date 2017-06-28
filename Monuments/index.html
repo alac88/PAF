@@ -26,9 +26,9 @@
     <h1>PAF 2017</h1>
     <H3>Projet étudiant de 1ère année</H3>
 
-    <h2><a href="https://paf.telecom-paristech.fr/projets/exploitation-donnees-lopen-data-et-web-semantique" target="_blank">Exploitation de données de l'Open Data et du Web Sémantique</a></h2>
+    <h2><a class="button" href="https://paf.telecom-paristech.fr/projets/exploitation-donnees-lopen-data-et-web-semantique" target="_blank" style="text-decoration:none;">Exploitation de données de l'Open Data et du Web Sémantique</a></h2>
 
-    <a class="button" href="poster.pdf" target="_blank">Télécharger notre poster</a>
+    <a class="button" href="poster.pdf" target="_blank" style="text-decoration:none;">Télécharger notre poster</a>
 
 </section>
 
@@ -50,9 +50,13 @@
          <input type="checkbox" id="resourceWorldHeritageSites" name="type" value="3"><label for="resourceWorldHeritageSites">Patrimoine mondial</label>
          <input type="checkbox" id="resourceArchitecturalStructures" name="type" value="4"><label for="resourceArchitecturalStructures">Structures architecturales</label>
         </div>
+
+        <select name="countries" id="country" >
+            <option value="">Tous</option>
+        </select>
     </div>
 
-        <input type="text" id="input" onkeyup="ButtonSearch()" placeholder="Search for names..">
+        <input type="text" id="input" onkeyup="ButtonSearch()" placeholder="Ecrivez pour lancer la recherche">
             <ul id="inputList" onclick="FillSearch()" >
 
             </ul>
