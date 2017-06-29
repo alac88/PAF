@@ -175,6 +175,7 @@ function make_name_and_URI_array(queryURI,format)
                 else
 				{
                     display_final(nameAndURIArray);
+					$("#searchingForResult").css("display","none");
 					launchQuery = true;
 				}
 
