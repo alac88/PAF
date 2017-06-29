@@ -49,9 +49,34 @@ function FillSearch(event) {
 
 }*/
 
+var currentInputValue = "";
+var isTimerSet = false;
+var interval;
+
+function launch_query_when_type_ended()
+{
+	if(launchQuery && currentInputValue.localeCompare(input.value) != 0)
+	{
+		$("#searchingForResult").css("display","block");
+		ButtonSearch();
+		isTimerSet = false;
+		clearInterval(interval);
+	}
+}
+
 function ButtonSearch(){
     if(launchQuery) {
+		
+		if(!isTimerSet)
+		{
+			interval = setInterval(function(){launch_query_when_type_ended();},300);
+			isTimerSet = true;
+		}
+		
 		launchQuery = false;
+		
+		currentInputValue = input.value;
+		
         var URI1 = dbpediaQueries[labels["resourceMonuments"]][3];
         var URI2 = dbpediaQueries[labels["resourceHistoricalPlaces"]][3];
         var URI3 = dbpediaQueries[labels["resourceWorldHeritageSites"]][3];
@@ -99,6 +124,9 @@ function ButtonSearch(){
         }
 
     }
-
+	else
+	{
+		$("#searchingForResult").css("display","block");
+	}
 }
 
